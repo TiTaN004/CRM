@@ -20,18 +20,66 @@
     </div>
     <!-- loader END -->
     <!-- Wrapper Start -->
+    
     <div class="wrapper">
-    <?php include './component/nav.php';  include './component/sidebar.php';?>
-       
-      <div class="content-page">
+        <?php include './component/nav.php'; 
+        include './component/sidebar.php';
+        include './db/db.php';?>
+   
+   <div class="content-page">
       <div class="container-fluid">
          <div class="row">
             <div class="col-lg-12">
-               Here Add Your HTML Content.....
+            <table class="table">
+   <thead class="thead-light">
+      <tr>
+         <th scope="col">id</th>
+         <th scope="col">Fist Name</th>
+         <th scope="col">Last Name</th>
+         <th scope="col">Email</th>
+         <th scope="col">Phone</th>
+         <th scope="col">State</th>
+         <th scope="col">Source</th>
+         <th scope="col">Inquiry</th>
+         <th scope="col">Status</th>
+         <th scope="col" colspan="2">Edit</th>
+      </tr>
+   </thead>
+   <tbody>
+      
+   <?php 
+        $q = "select * from lead";
+
+        $result = $conn->query($q);
+
+        while($row = $result->fetch_assoc()){
+            echo "<tr>
+            <th scope='row'>".$row['id']."</th>
+            <td>".$row['fname']."</td>
+            <td>".$row['lname']."</td>
+            <td>".$row['email']."</td>
+            <td>".$row['phone']."</td>
+            <td>".$row['state']."</td>
+            <td>".$row['source']."</td>
+            <td>".$row['Inquiry']."</td>
+            <td>".$row['status']."</td>
+            <td><a href='./operation/edit.php?id=".$row['id']."'><button type='button' class='btn btn-primary rounded-pill mt-2'>Edit</button></a>
+            <a href='./operation/delete.php?id=".$row['id']."'><button type='button' class='btn btn-primary rounded-pill mt-2'>Delete</button></a>
+            </td>
+         </tr>";
+        }
+      ?>
+    
+   </tbody>
+</table>
             </div>
          </div>
       </div>
       </div>
+    </div>
+    
+       
+     
     </div>
     <!-- Wrapper End-->
     <footer class="iq-footer">
