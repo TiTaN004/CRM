@@ -48,8 +48,22 @@
          <div class="row">
              
              <div class="col-lg-12">
-             
-                <a href="./export.php"><button type="button" class="btn btn-outline-primary mt-2" name="export">Export</button></a>
+               <div style="
+                  display: flex;
+                  align-items: center;
+                  flex-wrap: nowrap;
+                  justify-content: space-between;
+               "
+               class="mb-1">
+                  <a href="./operation/export.php"><button type="button" class="btn btn-outline-primary " name="export">Export</button></a>
+               <form method="post" action="./operation/search.php" class="d-flex" role="search">
+               <input class="form-control me-2" type="search" name="txt" placeholder="Search" aria-label="Search" style="
+                  width: 490px;
+               ">
+               <button class="btn btn-outline-primary" name="submit" type="submit">Search</button>
+               </form>
+
+               </div>
                 <?php 
         
     ?>

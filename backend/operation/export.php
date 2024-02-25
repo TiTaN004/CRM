@@ -1,5 +1,5 @@
 <?php
-    include './db/db.php';
+    include '../db/db.php';
     $sql = "SELECT * FROM lead";
     $result = $conn->query($sql);
 
