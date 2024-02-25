@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,16 +20,41 @@
     <!-- Wrapper Start -->
     
     <div class="wrapper">
+        
         <?php include './component/nav.php'; 
-        include './component/sidebar.php';
-        include './db/db.php';?>
+         include './component/sidebar.php';
+        include './db/db.php';
+        
+        if (!isset ($_GET['page']) ) {  
+            $page = 1;  
+        } else {  
+            $page = $_GET['page'];  
+        }  
+        $resultsPerPage = 10;
+        $offset = ($page-1) * $resultsPerPage;
+        
+        $q = "select * from lead";
+        
+        $result = $conn->query($q);
+        
+        $rows = $result->num_rows;
+        
+        $x = ceil(($rows / $resultsPerPage));
+        
+        ?>
    
    <div class="content-page">
       <div class="container-fluid">
          <div class="row">
-            <div class="col-lg-12">
+             
+             <div class="col-lg-12">
+             
+                <a href="./export.php"><button type="button" class="btn btn-outline-primary mt-2" name="export">Export</button></a>
+                <?php 
+        
+    ?>
             <table class="table">
-   <thead class="thead-light">
+   <thead class="thead-dark">
       <tr>
          <th scope="col">id</th>
          <th scope="col">Fist Name</th>
@@ -48,9 +71,9 @@
    <tbody>
       
    <?php 
-        $q = "select * from lead";
-
-        $result = $conn->query($q);
+        $sql = "SELECT * FROM lead LIMIT $offset, $resultsPerPage";
+        
+        $result = $conn->query($sql);
 
         while($row = $result->fetch_assoc()){
             echo "<tr>
@@ -64,43 +87,35 @@
             <td>".$row['Inquiry']."</td>
             <td>".$row['status']."</td>
             <td><a href='./operation/edit.php?id=".$row['id']."'><button type='button' class='btn btn-primary rounded-pill mt-2'>Edit</button></a>
-            <a href='./operation/delete.php?id=".$row['id']."'><button type='button' class='btn btn-primary rounded-pill mt-2'>Delete</button></a>
+            <a href='./operation/delete.php?id=".$row['id']."'><button type='button' class='btn btn-danger rounded-pill mt-2'>Delete</button></a>
             </td>
          </tr>";
         }
       ?>
+      
     
    </tbody>
 </table>
+<nav aria-label='Page navigation example'>
+            <ul class='pagination'>
+<?php 
+        for($i = 1; $i<=$x; $i++){
+            echo "
+               <li class='page-item'><a class='page-link border-primary bg-primary text-white' href='?page=$i'>$i</a></li>
+            ";
+        }
+      ?></ul>
+      </nav>    
             </div>
          </div>
       </div>
       </div>
     </div>
-    
-       
-     
     </div>
+    
     <!-- Wrapper End-->
-    <footer class="iq-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="../backend/privacy-policy.html">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="../backend/terms-of-service.html">Terms of Use</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 text-right">
-                    <span class="mr-1">
-                        Copyright
-                        <script>document.write(new Date().getFullYear())</script>© <a href="#" class="">Datum</a>
-                        All Rights Reserved.
-                    </span>
-                </div>
-            </div>
-        </div>
-    </footer>    <!-- Backend Bundle JavaScript -->
+    <?php include './component/footer.php'; ?>
+    <!-- Backend Bundle JavaScript -->
     <script src="../assets/js/backend-bundle.min.js"></script>
     <!-- Chart Custom JavaScript -->
     <script src="../assets/js/customizer.js"></script>
