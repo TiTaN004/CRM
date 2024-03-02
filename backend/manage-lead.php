@@ -33,7 +33,7 @@
         $resultsPerPage = 10;
         $offset = ($page-1) * $resultsPerPage;
         
-        $q = "select * from lead";
+        $q = "SELECT * FROM lead where status != 'ordered'";
         
         $result = $conn->query($q);
         
@@ -85,7 +85,7 @@
    <tbody>
       
    <?php 
-        $sql = "SELECT * FROM lead LIMIT $offset, $resultsPerPage";
+        $sql = "SELECT * FROM lead where status != 'ordered' LIMIT $offset, $resultsPerPage";
         
         $result = $conn->query($sql);
 

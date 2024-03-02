@@ -45,8 +45,8 @@
                <div class="profile-card rounded">
                   <img src="../assets/images/user/1.jpg" alt="profile-bg"
                      class="avatar-100 rounded d-block mx-auto img-fluid mb-3">
-                  <h3 class="font-600 text-white text-center mb-0">John Doe</h3>
-                  <p class="text-white text-center mb-5">Web Developer</p>
+                  <h3 class="font-600 text-white text-center mb-5 "><?php echo $uname ?></h3>
+                  <!-- <p class="text-white text-center mb-5"></p> -->
                </div>
                <div class="pro-content rounded">
                   <div class="d-flex align-items-center mb-3">

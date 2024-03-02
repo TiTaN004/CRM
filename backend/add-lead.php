@@ -64,6 +64,7 @@
                     <option selected="not-interested">Not interested</option>
                     <option value="Ordered">Ordered</option>
                     <option value="Hold">Hold</option>
+                    <option value="Interested">Interested</option>
                 </select>
                 </div>
                 
