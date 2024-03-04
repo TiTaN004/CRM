@@ -1,81 +1,77 @@
-<?php 
-   include './db/db.php';
-   
-    // perform query
-    // change the query to one relevant to your database
-    $q = "
-      SELECT  count(*) as total FROM  lead where status = 'ordered'
-      ";
-    // $result = $conn->query($myquery);
-    // while($row = $result->fetch_assoc()){
-    //     // echo json_encode($row); 
-    //     $arr[] = $row; 
-    // }
-
-    $result = $conn->query($q);
-    $total = 0;
-
-    while($row = $result->fetch_assoc()){
-        $total = $row['total'];
-    }
-
-    echo $total;
-
-    // $a = json_encode($arr);
-        // $result = $conn->query($q);
-        
-
-    // foreach($arr as $val){
-    //      json_encode($val);
-    // }
-   
-    // encode data to json format
-   
-    // close connection
-    // mysql_close($server);
-  ?>
- 
- <?php
- 
-$dataPoints = array( 
-	array("y" => 3373.64, "label" => "Germany" ),
-	array("y" => 2435.94, "label" => "France" ),
-	array("y" => 1842.55, "label" => "China" ),
-	array("y" => 1828.55, "label" => "Russia" ),
-	array("y" => 1039.99, "label" => "Switzerland" ),
-	array("y" => 765.215, "label" => "Japan" ),
-	array("y" => 612.453, "label" => "Netherlands" )
-);
- 
-?>
-<!DOCTYPE HTML>
 <html>
-<head>
-<script>
-window.onload = function() {
- 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Gold Reserves"
-	},
-	axisY: {
-		title: "Gold Reserves (in tonnes)"
-	},
-	data: [{
-		type: "column",
-		yValueFormatString: "#,##0.## tonnes",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
- 
+  <head>
+   
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+        // fetch('http://localhost/CRM/backend/temp2.php')
+        //   .then(response => response.json())
+        //   .then(data => {
+        //     console.log(data)
+        //   })
+        //   .catch(error => console.error('error fetching data',error));
+
+          // async function temp(){
+          //   let data = await fetch('http://localhost/CRM/backend/temp2.php');
+          //   let parsedData =await data.json();
+          //   console.log(parsedData);
+          // }
+          // temp()
+
+          async function temp() {
+    try {
+        let response = await fetch('http://localhost/CRM/backend/temp2.php');
+        let data = await response.json();
+
+        // Convert array of objects to an array of arrays
+        let formattedData = data.map(item => [item.status, parseInt(item.status_count)]);
+
+        console.log(formattedData);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
-</script>
-</head>
-<body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-</body>
-</html> 
+
+temp();
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 5],
+          ['Onions', 5],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>

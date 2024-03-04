@@ -70,16 +70,10 @@
         <td><?php echo $row['name'];?></td>
 		<td class="text-center"><?php echo $row['description'];?></td>
         <td class="text-center" >
-<a href="#" class="btn_approve"> <img src="img/approve.png" height="30px" width="30px" data-toggle="tooltip" title="Approve"></a>
-
-
-<a href="#"  class="btn_reject">
-<img src="img/cancel.png" height="34px" width="34px" data-toggle="tooltip" title="Reject"></a>
-
-<a href="#"  class="btn_delete">												
+<a href="./operation/delete.php ? id=<?php echo $row['id'] ?>"  class="btn_delete">												
 <img src="img/delete.png" height="30px" width="30px" data-toggle="tooltip" title="Delete"></a>
 
-<a href="edit_category.php?edit=<?php echo $row['course_id']; ?>">												
+<a href="./operation/edit.php ? id=<?php echo $row['id'] ?>">												
 <img src="img/edit.png" height="30px" width="30px" data-toggle="tooltip" title="Edit"></a>
 	</td>
            

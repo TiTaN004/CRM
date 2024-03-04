@@ -33,7 +33,7 @@
         $resultsPerPage = 10;
         $offset = ($page-1) * $resultsPerPage;
         
-        $q = "SELECT * FROM lead where status NOT IN ('ordered', 'inquiry')";
+        $q = "select * from lead where status='inquiry'";
         
         $result = $conn->query($q);
         
@@ -85,7 +85,7 @@
    <tbody>
       
    <?php 
-        $sql = "SELECT * FROM lead where status NOT IN ('ordered', 'inquiry') LIMIT $offset, $resultsPerPage";
+        $sql = "SELECT * FROM lead WHERE status = 'inquiry' LIMIT $offset, $resultsPerPage";
         
         $result = $conn->query($sql);
 

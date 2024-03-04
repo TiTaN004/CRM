@@ -1,5 +1,6 @@
 <?php
 include '../backend/db/db.php';
+error_reporting(0);
 $target_dir = "../assets/images/";
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
 $uploadOk = 1;
@@ -42,30 +43,28 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-    if(isset($_POST['btn_submit']))
-    {
-      $count=0;
-        $fname = $_FILES["file"]["name"];
+    if(isset($_POST['btn_submit'])){
+      $id = $_POST['id'];
+      $fname = $_FILES["file"]["name"];
       $nm = $_POST['txt_name'];
-      $file=$_FILES['file'];
+    //   $file=$_FILES['file'];
       $desc=$_POST['desc'];
-      
     }
  ?>
  <?php
  if(isset($_POST['btn_submit']) && $count==0)
  {
-	 $ins="insert into product (name,img_url,description) values('$nm','$fname','$desc');";
+	 $ins="UPDATE product SET  name='$nm', img_url='$fname', description='$desc' WHERE id='$id'";
 	 $q=$conn->query($ins);
 	 ?>
 	 <script>
-	 alert("course added successfully");
-     window.location = "./add_category.php";
+	 alert("Product added successfully");
+     //window.location = "./add_category.php";
 	 </script>
 	 <?php
     echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
   }
- else {
+  else {
     echo "Sorry, there was an error uploading your file.";
   }}
 }
