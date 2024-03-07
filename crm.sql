@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2024 at 08:59 AM
+-- Generation Time: Mar 07, 2024 at 07:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -44,24 +44,12 @@ CREATE TABLE `lead` (
 --
 
 INSERT INTO `lead` (`id`, `fname`, `lname`, `email`, `phone`, `state`, `source`, `Inquiry`, `status`) VALUES
-(1, 'manan', 'rathod', 'mananrathod214@gmail.com', 12364789, 'ads', 'asdf', 'dsga', 'Ordered'),
-(2, 'tanan', 'rathod', 'mananrathod214@gmail.com', 123456789, 'guj', 'indiamart', 'asdf', 'ordered'),
-(3, 'harshil', 'patel', 'harshil@gmail.com', 12345678, 'guj', 'l;sdkfj', 'la;jdf', 'ordered'),
-(4, 'manan', 'rathod', 'mananrathod214@gmail.com', 12364789, 'ads', 'asdf', 'dsga', 'not-interested'),
-(5, 'tanan', 'rathod', 'mananrathod214@gmail.com', 123456789, 'guj', 'indiamart', 'asdf', 'ordered'),
-(6, 'harshil', 'patel', 'harshil@gmail.com', 12345678, 'guj', 'l;sdkfj', 'la;jdf', 'ordered'),
-(7, 'manan', 'rathod', 'mananrathod214@gmail.com', 12364789, 'ads', 'asdf', 'dsga', 'not-interested'),
-(8, 'tanan', 'rathod', 'mananrathod214@gmail.com', 123456789, 'guj', 'indiamart', 'asdf', 'ordered'),
-(9, 'harshil', 'patel', 'harshil@gmail.com', 12345678, 'guj', 'l;sdkfj', 'la;jdf', 'ordered'),
-(10, 'manan', 'rathod', 'mananrathod214@gmail.com', 12364789, 'ads', 'asdf', 'dsga', 'not-interested'),
-(11, 'tanan', 'rathod', 'mananrathod214@gmail.com', 123456789, 'guj', 'indiamart', 'asdf', 'ordered'),
-(12, 'harshil', 'patel', 'harshil@gmail.com', 12345678, 'guj', 'l;sdkfj', 'la;jdf', 'ordered'),
-(13, 'xyz', 'abc', 'admin@gmail.com', 11, 'guj', 'l;sdkfj', 'la;jdf', 'Not interested'),
-(14, 'xyz', 'abc', 'admin@gmail.com', 11, 'guj', 'l;sdkfj', 'la;jdf', 'Not interested'),
-(19, '0', '0', '0@gmail.com', 123456789, 'guj', 'a', 'b', 'Ordered'),
-(20, 'jeet', 'patel', 'jeet@gmail.com', 1232456789, 'guj', 'website', 'iphone', 'inquiry'),
-(21, 'jeet', 'patel', 'jeet@gmail.com', 1232456789, 'guj', 'website', 'iphone', 'inquiry'),
-(22, 'harshil', 'patel', 'harshil@gmail.com', 123456789, 'guj', 'website', 'iphone', 'inquiry');
+(1, 'manan ', 'rathod', 'mananrathod45@gmail.com', 123456789, 'gujarat', 'whatsapp', 'iphone', 'Not interested'),
+(2, 'jeet', 'ramoliya', 'jeet@gmail.com', 123456788, 'gujarat', 'indiamart', 'watch', 'Ordered'),
+(3, 'vatsal', 'solanki', 'vatsal@gmail.com', 123456789, 'daman', 'indiamart', 'mac book', 'Hold'),
+(4, 'harshil', 'shingala', 'harshil1@gmail.com', 123456789, 'gujarat', 'website', 'iphone', 'Interested'),
+(5, 'divyesh', 'sarapdadia', 'divyesh@gmail.com', 123456789, 'gujarat', 'indiamart', 'iphone', 'Ordered'),
+(6, 'shashank', 'sidpara', 'shashank@gmail.com', 123456789, 'gujarat', 'website', 'mac book', 'inquiry');
 
 -- --------------------------------------------------------
 
@@ -84,7 +72,7 @@ INSERT INTO `product` (`id`, `name`, `img_url`, `description`) VALUES
 (1, 'Iphone', 'iphone.jpg', 'iphone 15 pro, black color, 128gb storage'),
 (2, 'Ipad', 'ipad.jpg', 'Ipad 10th Gen, color blue, 64gb'),
 (3, 'MacBook Pro', 'macbook pro.jpg', 'MacBook Pro Max, color space gray, 512gb ssd'),
-(4, 'MacBook Pro', 'macbook pro.jpg', 'MacBook Pro, Space Gray, 512 ssd');
+(4, 'watch', 'watch.jpg', 'apple watch ultra 2, orange strap');
 
 -- --------------------------------------------------------
 
@@ -146,13 +134,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `lead`
 --
 ALTER TABLE `lead`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`

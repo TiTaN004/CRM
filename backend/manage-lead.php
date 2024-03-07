@@ -55,7 +55,7 @@
                   justify-content: space-between;
                "
                class="mb-1">
-                  <a href="./operation/export.php"><button type="button" class="btn btn-outline-primary " name="export">Export</button></a>
+                  <a href="./operation/export.php"><button type="button" class="btn btn-outline-primary " name="export">Export All</button></a>
                <form method="post" action="./operation/search.php" class="d-flex" role="search">
                <input class="form-control me-2" type="search" name="txt" placeholder="Search" aria-label="Search" style="
                   width: 490px;
