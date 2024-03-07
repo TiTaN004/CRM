@@ -1,4 +1,14 @@
-<?php include '../db/db.php'; ?>
+<?php include '../db/db.php'; 
+
+// echo password_hash("manan", PASSWORD_BCRYPT);
+
+// $hashpass = password_hash("manan", PASSWORD_BCRYPT);
+//  $verify = password_verify('manan',$hashpass);
+
+
+//  echo $verify;
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -96,6 +106,10 @@
 
          $q = "select * from user where email = '$email'";
 
+         $pass = password_hash($pass,PASSWORD_DEFAULT);
+
+         // echo $pass;
+
          $result = $conn->query($q);
 
          if($result->num_rows >= 1){
@@ -106,7 +120,7 @@
 
             if($conn->query($q)){
                echo "<script>alert('User Created');</script>";
-               ?> <script>window.location = "../index.php"</script> <?php
+               ?> <!--<script>window.location = "../index.php"</script> <?php
             }
          }
          }

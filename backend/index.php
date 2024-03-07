@@ -72,7 +72,7 @@ include './db/db.php';  ?>
          $email = $_POST['email'];
          $pass = $_POST['pass'];
 
-         $q = "select * from user where email = '$email' and pass = '$pass'";
+         $q = "select * from user where email = '$email'";
          $_SESSION["email"] = $email;
 
          $result = $conn->query($q);
@@ -81,8 +81,18 @@ include './db/db.php';  ?>
          if ($result->num_rows > 0) {
             // $row = $result->fetch_assoc();
             // $_SESSION['uname'] = $row['uname'];
-            
-            ?><script>window.location = "home.php"</script><?php
+               $row=$result->fetch_assoc();
+               $hash=$row['pass'];
+               // echo $hash."<br>";
+               $verify = password_verify($pass,$hash);
+               // echo $verify;
+
+               if ($verify == 1) {
+                  ?><script>window.location = "home.php"</script><?php
+               }
+         }
+         else{
+            ?><script>alert("login or Password incorrect");</script><?php
          }
       }
          
