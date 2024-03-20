@@ -341,7 +341,7 @@ async function fetchData1() {
       <!-- </tbody> -->
                   </table>
                   <div class="d-flex justify-content-end align-items-center border-top-table p-3">
-                           <a href="./manage-lead.php"><button class="btn btn-secondary btn-sm">See All</button></a>
+                           <a href="./status-inquiry.php"><button class="btn btn-secondary btn-sm">See All</button></a>
                         </div>
                </div>
             </div>
