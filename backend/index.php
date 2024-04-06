@@ -54,9 +54,6 @@ include './db/db.php';  ?>
                               </div>
                            </div>
                            <button type="submit" name="submit" class="btn btn-primary btn-block mt-2">Log In</button>
-                           <div class="col-lg-12 mt-3">
-                                <p class="mb-0 text-center">Don't have an account? <a href="./auth/auth-sign-up.php">Sign Up</a></p>
-                           </div>
                         </form>
                      </div>
                   </div>

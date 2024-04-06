@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 07:10 AM
+-- Generation Time: Apr 06, 2024 at 08:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -84,7 +84,7 @@ CREATE TABLE `user` (
   `no` int(11) NOT NULL,
   `uname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pass` varchar(8) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `num` int(10) NOT NULL,
   `count` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -94,15 +94,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`no`, `uname`, `email`, `pass`, `num`, `count`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin', 0, ''),
-(2, 'manan', 'mananrathod214@gmail.com', '12345678', 0, ''),
-(3, 'manan rathod', 'mananrathod45@gmail.com', 'manan', 2147483647, 'india'),
-(4, 'nishit', 'nishit@gmail.com', 'nishit', 1234567890, 'india'),
-(5, 'janan', 'janan@gmail.com', 'janan', 123456789, 'india'),
-(6, 'tanan', 'tanan@gmail.com', 'tanan', 123456789, 'india'),
-(8, 'harshil', 'harshil1@gmail.com', 'harshil', 12334444, 'india'),
-(9, 'manan', 'mananrathod1@gmail.com', 'manan', 12345678, 'india'),
-(10, 'manan', 'mananrathod12@gmail.com', 'manan', 12345678, 'india');
+(1, 'manan rathod', 'manan@gmail.com', '$2y$10$NigT7m5//5QUIvLbR12WU.o7fbXm64rVaREq7N.uk45fr0vZzFRUe', 123456789, 'india'),
+(2, 'manan', 'mananrathod45@gmail.com', '$2y$10$Q2xJruxrGlnl034RPdBdXOQnKyf2/mzJYqA1mSLv3KbAy1h17Oa/6', 123456, 'india');
 
 --
 -- Indexes for dumped tables
@@ -146,7 +139,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
